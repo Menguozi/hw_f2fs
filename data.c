@@ -2596,7 +2596,7 @@ got_it:
 	 */
 	if (ipu_force ||
 		(__is_valid_data_blkaddr(fio->old_blkaddr) &&
-					need_inplace_update(fio))) {
+					need_inplace_update(fio) && hc_can_inplace_update(fio))) {
 		err = f2fs_encrypt_one_page(fio);
 		if (err)
 			goto out_writepage;
